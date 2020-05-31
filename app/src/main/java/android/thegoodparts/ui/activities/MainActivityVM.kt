@@ -1,3 +1,5 @@
 package android.thegoodparts.ui.activities
 
-class MainActivityVM
+import androidx.lifecycle.ViewModel
+
+class MainActivityVM : ViewModel()
