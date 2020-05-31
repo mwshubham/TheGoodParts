@@ -1,19 +1,47 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'kotlin-allopen'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+allOpen {
+    // allows mocking for classes w/o directly opening them for release builds
+    annotation 'com.android.example.github.testing.OpenClass'
+}
+
+// Read credentials from credentials.properties file
+def credentialFile = rootProject.file("credentials.properties")
+def credentialProperty = new Properties()
+credentialProperty.load(new FileInputStream(credentialFile))
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
+
+    dataBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "android.thegoodparts"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
 
+        vectorDrawables.useSupportLibrary true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "AWS_API_BASE_URL", credentialProperty['AWS_API_BASE_URL'])
+        buildConfigField("String", "NEWS_API_BASE_URL", credentialProperty['NEWS_API_BASE_URL'])
+        buildConfigField("String", "NEWS_API_KEY", credentialProperty['NEWS_API_KEY'])
+    }
+
+    testOptions {
+        animationsDisabled = true
     }
 
     buildTypes {
@@ -22,15 +50,139 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // work-runtime-ktx 2.1.0 and above now requires Java 8
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+repositories {
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    def coroutinesVersion = '1.3.7'
+    def lifecycleVersion = '2.2.0'
+    def liveDataKtx = '2.2.0'
+
+    // JetBrain's
+    implementation deps.kotlin.stdlib
+
+    // AndroidX
+    implementation deps.app_compat
+    implementation deps.constraint_layout
+    implementation deps.material
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation deps.fragment.runtime
+
+    // Kotlin extensions
+    implementation deps.core_ktx
+
+    // Kotlin Flow
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    // Room
+    implementation deps.room.runtime
+    kapt deps.room.compiler
+    implementation deps.room.room_ktx
+    androidTestImplementation deps.room.testing
+
+    // Lifecycle (ViewModel + LiveData)
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$liveDataKtx"
+
+    // Jetpack
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui_ktx
+
+    // dagger2
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android_support
+    kapt deps.dagger.compiler
+    kapt deps.dagger.android_support_compiler
+
+    // Networking
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.converter_moshi
+    testImplementation deps.mock_web_server
+
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+    /* Refer to: https://stackoverflow.com/questions/58630667/rejecting-re-init-on-previously-failed-class-in-okhttp */
+    implementation 'org.conscrypt:conscrypt-android:2.2.1'
+
+    debugImplementation "com.github.ChuckerTeam.Chucker:library:3.2.0"
+    releaseImplementation "com.github.ChuckerTeam.Chucker:library-no-op:3.2.0"
+
+    // JSON Library
+    api 'com.squareup.moshi:moshi-kotlin:1.9.2'
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.9.2"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-analytics:17.4.2'
+    implementation 'com.google.firebase:firebase-messaging:20.1.7'
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
+    implementation 'com.google.firebase:firebase-config-ktx:19.1.4'
+
+    // Logging
+    implementation deps.timber
+
+    // Testing
+
+    /*Local Unit Test*/
+    // Required -- JUnit 4 framework
+    testImplementation deps.junit
+    // Using Truth Api for Local Unit test instead of AspectJ and Hamcrest
+    // However, We use hamcrest matcher APIs for flexible assertions.
+    testImplementation deps.truth
+    // Optional -- Robolectric environment
+    testImplementation deps.robolectric
+    testImplementation deps.atsl.ext_junit
+    testImplementation deps.espresso.core
+    testImplementation deps.atsl.core
+    // Optional -- Mockito framework
+    testImplementation deps.mockito.core
+//    testImplementation 'org.mockito:mockito-inline:3.2.4'
+    testImplementation deps.arch_core.testing
+
+    /* Instrumented Unit Test*/
+    // Android Testing Support Library (atsl)
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+
+    androidTestImplementation deps.atsl.ext_junit
+
+    // Optional -- Hamcrest library
+    androidTestImplementation 'org.hamcrest:hamcrest-library:1.3'
+    // Optional -- UI testing with Espresso
+    androidTestImplementation deps.espresso.core
+    // Optional -- UI testing with UI Automator
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestImplementation deps.mockito.android
+//    androidTestImplementation 'org.mockito:mockito-inline:3.2.4'
+    androidTestImplementation deps.arch_core.testing
+
+    // https://codelabs.developers.google.com/codelabs/advanced-android-kotlin-training-testing-test-doubles/index.html?index=..%2F..advanced-android-kotlin-training#10
+//    This library is required to use Mockito in an Android project.
+//    Mockito needs to generate classes at runtime. On Android, this is done using dex byte code,
+//    and so this library enables Mockito to generate objects during runtime on Android.
+//    androidTestImplementation deps.dexmaker
+//    This library is made up of external contributions (hence the name) which contain testing code for more advanced views,
+//    such as DatePicker and RecyclerView. It also contains Accessibility checks and class called CountingIdlingResource that is covered later.
+//    androidTestImplementation deps.espresso.contrib
+
+    debugImplementation deps.fragment.testing
 }
