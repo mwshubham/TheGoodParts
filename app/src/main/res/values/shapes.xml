@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShapeAppearance.Main.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/color_small_component_corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearance.Main.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/color_medium_component_corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearance.Main.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/color_large_component_corner_radius</item>
+    </style>
+
+    <!--ShapeAppearance overlay for components which can be 'marked' by rounding their top left -->
+    <!--corner - ie. email cards which have been starred-->
+    <style name="ShapeAppearanceOverlay.Main.MediumComponent.Marked" parent="">
+        <item name="cornerSizeTopLeft">@dimen/color_small_component_corner_radius</item>
+    </style>
+
+    <dimen name="color_small_component_corner_radius">24dp</dimen>
+    <dimen name="color_medium_component_corner_radius">0dp</dimen>
+    <dimen name="color_large_component_corner_radius">12dp</dimen>
+
+</resources>

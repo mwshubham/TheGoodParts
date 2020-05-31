@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "432998767086",
+    "firebase_url": "https://what-s-new-in-android.firebaseio.com",
+    "project_id": "what-s-new-in-android",
+    "storage_bucket": "what-s-new-in-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432998767086:android:2bdb108239f680fcc096ff",
+        "android_client_info": {
+          "package_name": "android.thegoodparts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432998767086-a4vng27ehucsk14nlbogcopf9uu4jsf2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS5wwUHr8QiNytBUX65qPjKUXgZduy_N4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432998767086-a4vng27ehucsk14nlbogcopf9uu4jsf2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (c) 2019 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+  in compliance with the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software distributed under the License
+  is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+  or implied. See the License for the specific language governing permissions and limitations under
+  the License.
+  -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Refer to: https://medium.com/over-engineering/setting-up-a-material-components-theme-for-android-fbf7774da739 -->
+    <!--Refer to: https://github.com/material-components/material-components-android-examples -->
+    <!--Final, top-level theme-->
+    <style name="Theme.Main.DayNight" parent="Theme.Main" />
+
+    <style name="Theme.Main" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!--Color-->
+        <item name="colorPrimary">@color/color_blue_600</item>
+        <item name="colorPrimaryVariant">@color/color_blue_700</item>
+        <item name="colorSecondary">@color/color_orange_500</item>
+        <item name="colorSecondaryVariant">@color/color_orange_400</item>
+
+        <item name="android:colorBackground">@color/color_blue_50</item>
+        <item name="colorSurface">@color/color_white_50</item>
+        <item name="colorPrimarySurfaceVariant">?attr/colorPrimaryVariant</item>
+        <item name="colorError">@color/color_red_400</item>
+
+        <item name="colorOnPrimary">@color/color_white_50</item>
+        <item name="colorOnSecondary">@color/color_black_900</item>
+        <item name="colorOnBackground">@color/color_black_900</item>
+        <item name="colorOnSurface">@color/color_black_900</item>
+        <item name="colorOnError">@color/color_black_900</item>
+
+        <item name="scrimBackground">@color/color_white_50_alpha_060</item>
+        <item name="android:statusBarColor">@color/color_status_bar</item>
+        <item name="android:navigationBarColor">@color/nav_bar</item>
+
+        <!--Shape-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Main.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Main.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Main.LargeComponent
+        </item>
+
+        <!--Typography-->
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Main.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Main.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Main.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Main.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Main.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Main.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Main.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Main.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Main.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Main.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Main.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Main.Overline</item>
+
+        <!--Material Alert Dialog-->
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.Main.Subtitle1</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.Main.Body1</item>
+
+        <!--Emphasis-->
+        <item name="emphasisHighAlpha">0.87</item>
+        <item name="emphasisMediumAlpha">0.60</item>
+        <item name="emphasisDisabledAlpha">0.38</item>
+
+        <!--Motion Interpolator-->
+        <item name="motionInterpolatorPersistent">@android:interpolator/fast_out_slow_in</item>
+        <item name="motionInterpolatorIncoming">@android:interpolator/decelerate_cubic</item>
+        <item name="motionInterpolatorOutgoing">@android:interpolator/accelerate_cubic</item>
+
+        <!--Styles-->
+        <item name="bottomAppBarStyle">
+            @style/Widget.MaterialComponents.BottomAppBar.PrimarySurface
+        </item>
+        <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal</item>
+        <item name="navigationViewStyle">@style/Widget.Main.NavigationView</item>
+        <item name="chipStyle">@style/Widget.Main.Chip.Entry</item>
+
+        <!--System/Platform attributes-->
+        <item name="android:windowBackground">?android:colorBackground</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+    </style>
+</resources>
