@@ -1,7 +1,9 @@
 package android.thegoodparts
 
 import android.app.Application
+import android.thegoodparts.constants.CoreLoggingConstants
 import android.thegoodparts.di.components.DaggerApplicationComponent
+import android.thegoodparts.utilities.CoreActivityLifecycleCallbacks
 import android.thegoodparts.utilities.CoreDebugTree
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
@@ -24,6 +26,8 @@ class MainApplication : Application(), HasAndroidInjector {
         initTimber()
         initAppDependencyInjection()
         initFirebaseRemoteConfig()
+        registerActivityLifecycleCallbacks()
+        Timber.i(CoreLoggingConstants.LOGGING_PLACEHOLDER)
     }
 
     // ============================================================================================
@@ -66,6 +70,10 @@ class MainApplication : Application(), HasAndroidInjector {
                     Timber.e("Fetch failed")
                 }
             }
+    }
+
+    private fun registerActivityLifecycleCallbacks() {
+        registerActivityLifecycleCallbacks(CoreActivityLifecycleCallbacks())
     }
 
 }
