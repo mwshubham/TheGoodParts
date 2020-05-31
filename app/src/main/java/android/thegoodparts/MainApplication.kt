@@ -2,6 +2,7 @@ package android.thegoodparts
 
 import android.app.Application
 import android.thegoodparts.di.components.DaggerApplicationComponent
+import android.thegoodparts.utilities.CoreDebugTree
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
@@ -19,6 +20,7 @@ class MainApplication : Application(), HasAndroidInjector {
 
     override fun onCreate() {
         super.onCreate()
+        initTimber()
         initAppDependencyInjection()
         initFirebaseRemoteConfig()
     }
@@ -26,6 +28,15 @@ class MainApplication : Application(), HasAndroidInjector {
     // ============================================================================================
     //  Private init methods
     // ============================================================================================
+
+    /**
+     * Initialize log library Timber only on debug build.
+     */
+    private fun initTimber() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(CoreDebugTree())
+        }
+    }
 
     /**
      * Initialize app dependency injection component.
