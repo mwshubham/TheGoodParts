@@ -15,5 +15,4 @@ abstract class MainActivityModule {
     @ViewModelKey(MainActivityVM::class)
     internal abstract fun bindMainActivityVM(viewModel: MainActivityVM): ViewModel
 
-
 }
