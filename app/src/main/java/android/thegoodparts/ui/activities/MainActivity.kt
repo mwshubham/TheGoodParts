@@ -3,6 +3,8 @@ package android.thegoodparts.ui.activities
 import android.os.Bundle
 import android.thegoodparts.R
 import android.thegoodparts.databinding.ActivityMainBinding
+import android.thegoodparts.utilities.CoreFirebaseUtils
+import android.thegoodparts.utilities.CoreFragmentLifecycleCallbacks
 import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -35,6 +37,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
         navController = findNavController(R.id.nav_host_fragment)
 
         initListeners()
+        CoreFirebaseUtils.logToken()
     }
 
     private fun initListeners() {
@@ -46,6 +49,10 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
         }
         binding.bottomNavView.setupWithNavController(navController)
         navController.addOnDestinationChangedListener(this)
+        supportFragmentManager.registerFragmentLifecycleCallbacks(
+            CoreFragmentLifecycleCallbacks(),
+            true
+        )
     }
 
     private fun navigateToSearchFragment() {
