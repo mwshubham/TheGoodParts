@@ -39,4 +39,19 @@
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
 
+    <dialog
+        android:id="@+id/dialog_fragment_wip"
+        android:name="android.thegoodparts.ui.dialogs.WipDialogFragment"
+        tools:layout="WipDialogFragment" />
+
+    <dialog
+        android:id="@+id/dialog_fragment_sww"
+        android:name="android.thegoodparts.ui.dialogs.SWWDialogFragment"
+        tools:layout="SWWDialogFragment" />
+
+    <dialog
+        android:id="@+id/dialog_fragment_internet_unavailable"
+        android:name="android.thegoodparts.ui.dialogs.InternetUnavailableDialogFragment"
+        tools:layout="InternetUnavailableDialogFragment" />
+
 </navigation>
