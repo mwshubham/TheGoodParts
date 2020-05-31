@@ -1,8 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.more.MoreFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="android.thegoodparts.ui.fragments.more.MoreFragmentVM" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            tools:context=".ui.fragments.more.MoreFragment">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
+                android:text="@string/app_name_full"
+                android:textAppearance="@style/TextAppearance.Main.Headline4"
+                android:textColor="@color/color_blue_700"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/tag_line"
+                android:textAppearance="@style/TextAppearance.Main.Body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <View
+                android:id="@+id/divider1"
+                style="@style/MoreFragmentDividerStyle"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+            <TextView
+                android:id="@+id/tv_bookmark"
+                style="@style/MoreFragmentTextItemStyle"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_bookmark_black_24dp"
+                android:text="@string/bookmark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+            <TextView
+                android:id="@+id/tv_filter_content"
+                style="@style/MoreFragmentTextItemStyle"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_filter_list_black_24dp"
+                android:text="@string/filter_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bookmark" />
+
+            <View
+                android:id="@+id/divider2"
+                style="@style/MoreFragmentDividerStyle"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_filter_content" />
+
+            <TextView
+                android:id="@+id/tv_what_new"
+                style="@style/MoreFragmentTextItemStyle"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_fiber_new_black_24dp"
+                android:text="@string/whats_new_in_app"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+            <TextView
+                android:id="@+id/tv_what_upcoming"
+                style="@style/MoreFragmentTextItemStyle"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_next_week_black_24dp"
+                android:text="@string/whats_upcoming_in_app"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_what_new" />
+
+            <View
+                android:id="@+id/divider3"
+                style="@style/MoreFragmentDividerStyle"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_what_upcoming" />
+
+            <TextView
+                android:id="@+id/tv_donation"
+                style="@style/MoreFragmentTextItemStyle"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_monetization_on_black_24dp"
+                android:text="@string/donation"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+            <TextView
+                android:id="@+id/tv_settings"
+                style="@style/MoreFragmentTextItemStyle"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_settings_black_24dp"
+                android:text="@string/settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_donation" />
+
+            <TextView
+                android:id="@+id/tv_send_feedback"
+                style="@style/MoreFragmentTextItemStyle"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_feedback_black_24dp"
+                android:text="@string/send_feedback"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_settings" />
+
+            <TextView
+                android:id="@+id/tv_help_support"
+                style="@style/MoreFragmentTextItemStyle"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_help_black_24dp"
+                android:text="@string/help_amp_support"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_send_feedback" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>
