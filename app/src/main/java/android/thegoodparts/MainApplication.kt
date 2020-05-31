@@ -20,6 +20,7 @@ class MainApplication : Application(), HasAndroidInjector {
 
     override fun onCreate() {
         super.onCreate()
+
         initTimber()
         initAppDependencyInjection()
         initFirebaseRemoteConfig()
