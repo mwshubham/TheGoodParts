@@ -2,9 +2,14 @@ package android.thegoodparts
 
 import android.app.Application
 import android.thegoodparts.di.components.DaggerApplicationComponent
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.ktx.remoteConfig
+import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
+import timber.log.Timber
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class MainApplication : Application(), HasAndroidInjector {
@@ -15,6 +20,7 @@ class MainApplication : Application(), HasAndroidInjector {
     override fun onCreate() {
         super.onCreate()
         initAppDependencyInjection()
+        initFirebaseRemoteConfig()
     }
 
     // ============================================================================================
@@ -32,5 +38,22 @@ class MainApplication : Application(), HasAndroidInjector {
     }
 
     override fun androidInjector(): AndroidInjector<Any> = androidInjector
+
+    private fun initFirebaseRemoteConfig() {
+        val configSettings = remoteConfigSettings {
+            minimumFetchIntervalInSeconds = TimeUnit.HOURS.toSeconds(1)
+        }
+        Firebase.remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
+        Firebase.remoteConfig.setConfigSettingsAsync(configSettings)
+        Firebase.remoteConfig.fetchAndActivate()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val updated = task.result
+                    Timber.d("Config params updated: $updated")
+                } else {
+                    Timber.e("Fetch failed")
+                }
+            }
+    }
 
 }
