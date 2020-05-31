@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nav_graph_main.xml">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main.xml"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="android.thegoodparts.ui.fragments.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_read"
+        android:name="android.thegoodparts.ui.fragments.read.ReadFragment"
+        android:label="fragment_read"
+        tools:layout="@layout/fragment_read" />
+    <fragment
+        android:id="@+id/navigation_listen"
+        android:name="android.thegoodparts.ui.fragments.listen.ListenFragment"
+        android:label="fragment_listen"
+        tools:layout="@layout/fragment_listen" />
+    <fragment
+        android:id="@+id/navigation_watch"
+        android:name="android.thegoodparts.ui.fragments.watch.WatchFragment"
+        android:label="fragment_watch"
+        tools:layout="@layout/fragment_watch" />
+
+    <fragment
+        android:id="@+id/navigation_more"
+        android:name="android.thegoodparts.ui.fragments.more.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" />
+
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="android.thegoodparts.ui.fragments.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 
 </navigation>
