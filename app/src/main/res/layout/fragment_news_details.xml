@@ -6,20 +6,13 @@
     <data>
 
         <variable
-            name="newsArticle"
-            type="app.thegoodparts.data.source.local.NewsArticle" />
+            name="viewModel"
+            type="app.thegoodparts.ui.fragments.newsdetails.NewsDetailsFragmentVM" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:transitionName="@{newsArticle.publishedAt}"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="6sp"
-        app:cardUseCompatPadding="true">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{newsArticle.urlToImage}"
+                app:imageUrl="@{viewModel.newsArticle.urlToImage}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +50,7 @@
                     android:drawablePadding="6dp"
                     android:textAppearance="@style/TextAppearance.Main.Body2"
                     app:drawableTint="@color/color_black_900"
-                    app:formattedPublishedAt="@{newsArticle.publishedAt}"
+                    app:formattedPublishedAt="@{viewModel.newsArticle.publishedAt}"
                     tools:text="Sun, 22 May 2020" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -70,8 +63,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="10dp"
                 android:ellipsize="end"
-                android:maxLines="2"
-                android:text="@{newsArticle.title}"
+                android:text="@{viewModel.newsArticle.title}"
                 android:textAppearance="@style/TextAppearance.Main.Subtitle1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -86,8 +78,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:ellipsize="end"
-                android:maxLines="3"
-                android:text="@{newsArticle.description}"
+                android:text="@{viewModel.newsArticle.description}"
                 android:textAppearance="@style/TextAppearance.Main.Subtitle2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,9 +91,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:includeFontPadding="false"
-                android:text="@{newsArticle.source.name}"
+                android:text="@{viewModel.newsArticle.source.name}"
                 android:textAppearance="@style/TextAppearance.Main.Subtitle2"
-                app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintStart_toStartOf="@id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/tv_description"
                 tools:text="India.com" />
@@ -125,13 +116,25 @@
                 android:layout_marginStart="4dp"
                 android:includeFontPadding="false"
                 android:textAppearance="@style/TextAppearance.Main.Subtitle2"
-                app:formattedTimeAgo="@{newsArticle.publishedAt}"
+                app:formattedTimeAgo="@{viewModel.newsArticle.publishedAt}"
                 app:layout_constraintBaseline_toBaselineOf="@id/tv_source"
                 app:layout_constraintBottom_toBottomOf="@id/tv_source"
                 app:layout_constraintStart_toEndOf="@id/view_dot"
                 app:layout_constraintTop_toTopOf="@id/tv_source"
                 tools:text="9 hours ago" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:text="@{viewModel.newsArticle.url}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_source"
+                tools:text="https://www.ndtv.com/india-news/coronavirus-lockdown-centres-plan-for-resuming-flights-runs-into-turbulence-in-states-2234148" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

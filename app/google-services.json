@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:432998767086:android:2bdb108239f680fcc096ff",
+        "mobilesdk_app_id": "1:432998767086:android:01019cdd99a4fe81c096ff",
         "android_client_info": {
-          "package_name": "android.thegoodparts"
+          "package_name": "app.thegoodparts"
         }
       },
       "oauth_client": [

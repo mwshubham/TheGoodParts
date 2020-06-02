@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="android.thegoodparts.ui.activities.MainActivityVM" />
+            type="app.thegoodparts.ui.activities.MainActivityVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

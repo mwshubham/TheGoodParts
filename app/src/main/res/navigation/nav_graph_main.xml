@@ -7,51 +7,70 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="android.thegoodparts.ui.fragments.home.HomeFragment"
+        android:name="app.thegoodparts.ui.fragments.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
+    <action
+        android:id="@+id/start_fragment_news_details"
+        app:destination="@+id/fragment_news_details">
+        <argument
+            android:name="publishedAt"
+            app:argType="string"
+            app:nullable="false" />
+    </action>
+
+    <fragment
+        android:id="@+id/fragment_news_details"
+        android:name="app.thegoodparts.ui.fragments.newsdetails.NewsDetailsFragment"
+        android:label="fragment_news_details"
+        tools:layout="@layout/fragment_news_details">
+        <argument
+            android:name="publishedAt"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_read"
-        android:name="android.thegoodparts.ui.fragments.read.ReadFragment"
+        android:name="app.thegoodparts.ui.fragments.read.ReadFragment"
         android:label="fragment_read"
         tools:layout="@layout/fragment_read" />
     <fragment
         android:id="@+id/navigation_listen"
-        android:name="android.thegoodparts.ui.fragments.listen.ListenFragment"
+        android:name="app.thegoodparts.ui.fragments.listen.ListenFragment"
         android:label="fragment_listen"
         tools:layout="@layout/fragment_listen" />
     <fragment
         android:id="@+id/navigation_watch"
-        android:name="android.thegoodparts.ui.fragments.watch.WatchFragment"
+        android:name="app.thegoodparts.ui.fragments.watch.WatchFragment"
         android:label="fragment_watch"
         tools:layout="@layout/fragment_watch" />
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="android.thegoodparts.ui.fragments.more.MoreFragment"
+        android:name="app.thegoodparts.ui.fragments.more.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
 
     <fragment
         android:id="@+id/fragment_search"
-        android:name="android.thegoodparts.ui.fragments.search.SearchFragment"
+        android:name="app.thegoodparts.ui.fragments.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
 
     <dialog
         android:id="@+id/dialog_fragment_wip"
-        android:name="android.thegoodparts.ui.dialogs.WipDialogFragment"
+        android:name="app.thegoodparts.ui.dialogs.WipDialogFragment"
         tools:layout="WipDialogFragment" />
 
     <dialog
         android:id="@+id/dialog_fragment_sww"
-        android:name="android.thegoodparts.ui.dialogs.SWWDialogFragment"
+        android:name="app.thegoodparts.ui.dialogs.SWWDialogFragment"
         tools:layout="SWWDialogFragment" />
 
     <dialog
         android:id="@+id/dialog_fragment_internet_unavailable"
-        android:name="android.thegoodparts.ui.dialogs.InternetUnavailableDialogFragment"
+        android:name="app.thegoodparts.ui.dialogs.InternetUnavailableDialogFragment"
         tools:layout="InternetUnavailableDialogFragment" />
 
 </navigation>

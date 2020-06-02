@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="android.thegoodparts.ui.fragments.more.MoreFragmentVM" />
+            type="app.thegoodparts.ui.fragments.more.MoreFragmentVM" />
     </data>
 
     <ScrollView
