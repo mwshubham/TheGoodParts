@@ -1,6 +1,7 @@
 package app.thegoodparts.data.source.remote
 
 import app.thegoodparts.BuildConfig
+import app.thegoodparts.data.source.remote.response.NewsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

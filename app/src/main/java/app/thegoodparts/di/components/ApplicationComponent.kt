@@ -2,10 +2,7 @@ package app.thegoodparts.di.components
 
 import android.content.Context
 import app.thegoodparts.MainApplication
-import app.thegoodparts.di.modules.ActivityBuilderModule
-import app.thegoodparts.di.modules.CoreModule
-import app.thegoodparts.di.modules.DatabaseModule
-import app.thegoodparts.di.modules.NewsModule
+import app.thegoodparts.di.modules.*
 import app.thegoodparts.di.modules.network.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
@@ -22,7 +19,8 @@ import javax.inject.Singleton
         DatabaseModule::class,
 
         NetworkModule::class,
-        NewsModule::class
+        NewsModule::class,
+        SearchModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<MainApplication> {

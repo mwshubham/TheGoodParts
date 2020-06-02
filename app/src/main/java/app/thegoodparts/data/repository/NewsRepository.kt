@@ -6,7 +6,7 @@ import app.thegoodparts.data.NetworkBoundResource
 import app.thegoodparts.data.source.local.NewsArticle
 import app.thegoodparts.data.source.local.NewsArticlesDao
 import app.thegoodparts.data.source.remote.NewsRemoteDataSource
-import app.thegoodparts.data.source.remote.NewsResponse
+import app.thegoodparts.data.source.remote.response.NewsResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow

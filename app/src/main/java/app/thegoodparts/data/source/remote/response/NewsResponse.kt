@@ -1,4 +1,4 @@
-package app.thegoodparts.data.source.remote
+package app.thegoodparts.data.source.remote.response
 
 import app.thegoodparts.data.source.local.NewsArticle
 
