@@ -15,7 +15,7 @@ interface NewsRemoteDataSource {
      *
      * Retrieves top headlines / latest news article using News API.
      */
-    @GET("/v2/top-headlines")
+    @GET
     suspend fun getTopHeadlines(
         @Url url: String = BuildConfig.NEWS_API_BASE_URL + ENDPOINT_TOP_HEADLINES,
         @Query("country") country: String = "in",
