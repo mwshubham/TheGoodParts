@@ -7,6 +7,7 @@ import app.thegoodparts.ui.activities.MainActivityVM
 import app.thegoodparts.ui.fragments.home.HomeFragment
 import app.thegoodparts.ui.fragments.listen.ListenFragment
 import app.thegoodparts.ui.fragments.more.MoreFragment
+import app.thegoodparts.ui.fragments.newsdetails.NewsDetailsFragment
 import app.thegoodparts.ui.fragments.read.ReadFragment
 import app.thegoodparts.ui.fragments.search.SearchFragment
 import app.thegoodparts.ui.fragments.watch.WatchFragment
@@ -27,6 +28,9 @@ abstract class MainActivityModule {
     @ExperimentalCoroutinesApi
     @ContributesAndroidInjector(modules = [HomeFragmentModule::class])
     abstract fun bindHomeFragment(): HomeFragment
+
+    @ContributesAndroidInjector(modules = [NewsDetailsModule::class])
+    abstract fun bindNewsDetailsFragment(): NewsDetailsFragment
 
     @ContributesAndroidInjector(modules = [ReadFragmentModule::class])
     abstract fun bindReadFragment(): ReadFragment
