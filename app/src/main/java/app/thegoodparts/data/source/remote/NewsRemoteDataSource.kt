@@ -4,6 +4,9 @@ import app.thegoodparts.BuildConfig
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.Url
+
+private const val ENDPOINT_TOP_HEADLINES = "/v2/top-headlines"
 
 interface NewsRemoteDataSource {
     /**
@@ -14,6 +17,7 @@ interface NewsRemoteDataSource {
      */
     @GET("/v2/top-headlines")
     suspend fun getTopHeadlines(
+        @Url url: String = BuildConfig.NEWS_API_BASE_URL + ENDPOINT_TOP_HEADLINES,
         @Query("country") country: String = "in",
         @Query("apiKey") apiKey: String = BuildConfig.NEWS_API_KEY
     ): Response<NewsResponse>

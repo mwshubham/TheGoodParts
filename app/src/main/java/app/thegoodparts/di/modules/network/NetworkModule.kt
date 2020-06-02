@@ -93,8 +93,7 @@ class NetworkModule {
     ): Retrofit =
         Retrofit.Builder()
             .client(okHttpClient)
-            // todo [later] provide support for multiple base URLS.
-            .baseUrl(BuildConfig.NEWS_API_BASE_URL)
+            .baseUrl(BuildConfig.AWS_API_BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
 }
