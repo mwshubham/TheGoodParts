@@ -15,7 +15,7 @@ interface NewsArticlesDao {
     /**
      * Insert articles into the table
      */
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertArticles(articles: List<NewsArticle>): List<Long>
 
     @Query("DELETE FROM news_article")

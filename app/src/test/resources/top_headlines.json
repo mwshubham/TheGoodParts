@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "totalResults": 2,
+  "articles": [
+    {
+      "source": {
+        "id": "id",
+        "name": "name"
+      },
+      "author": "author",
+      "title": "title",
+      "description": "description",
+      "url": "url",
+      "urlToImage": "urlToImage",
+      "publishedAt": "publishedAt",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Ndtv.com"
+      },
+      "author": null,
+      "title": "Lockdown May Not End On May 31, Need Time For Flights: Uddhav Thackeray - NDTV",
+      "description": "Maharashtra needsmore time to prepare for resuming flights,Chief Minister Uddhav Thackeraysaid today, adding that he spoke withAviation Minister Hardeep Singh Puri.",
+      "url": "https://www.ndtv.com/india-news/uddhav-thackeray-says-spoke-with-aviation-minister-we-need-more-time-to-prepare-for-resuming-flights-2234285",
+      "urlToImage": "https://c.ndtvimg.com/2020-05/uv86jdj8_uddhav-thackeray-presser-_625x300_24_May_20.jpg",
+      "publishedAt": "2020-05-24T10:04:35Z",
+      "content": "Maharashtra Chief Minister Uddhav Thackeray addressed a press conference this afternoon.\r\nMumbai/ New Delhi: Maharashtra today said it is anticipating more coronavirus cases and needs \"time to prepar… [+1728 chars]"
+    }
+  ]
+}
