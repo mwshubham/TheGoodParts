@@ -25,9 +25,6 @@ class SearchFragmentTest {
     @get:Rule
     var mockitoRule: MockitoRule = MockitoJUnit.rule()
 
-//    @Mock
-//    lateinit var doubtnutRemoteDataSource: DoubtnutRemoteDataSource
-
     @Mock
     lateinit var searchRepository: SearchRepository
 
