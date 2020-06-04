@@ -2,6 +2,7 @@ package app.thegoodparts.data.source.remote
 
 import app.thegoodparts.BuildConfig
 import app.thegoodparts.data.source.remote.response.NewsResponse
+import app.thegoodparts.testing.OpenForTesting
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -9,6 +10,7 @@ import retrofit2.http.Url
 
 private const val ENDPOINT_TOP_HEADLINES = "/v2/top-headlines"
 
+@OpenForTesting
 interface NewsRemoteDataSource {
     /**
      * @param country The 2-letter ISO 3166-1 code of the country you want to get headlines for.

@@ -14,6 +14,7 @@ import app.thegoodparts.data.source.remote.response.SearchResponse
 import app.thegoodparts.databinding.FragmentSearchBinding
 import app.thegoodparts.extensions.afterTextChangedDebounce
 import app.thegoodparts.extensions.observe
+import app.thegoodparts.testing.OpenForTesting
 import app.thegoodparts.ui.ScreenState
 import app.thegoodparts.ui.fragments.BaseFragment
 import app.thegoodparts.utilities.CoreKeyboardUtils
@@ -21,6 +22,7 @@ import app.thegoodparts.utilities.CoreNetworkUtils
 import timber.log.Timber
 import javax.inject.Inject
 
+@OpenForTesting
 open class SearchFragment : BaseFragment() {
 
     @Inject
