@@ -5,18 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import app.thegoodparts.R
 import app.thegoodparts.databinding.FragmentMoreBinding
 import app.thegoodparts.ui.fragments.BaseFragment
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MoreFragment : BaseFragment() {
 
     private lateinit var binding: FragmentMoreBinding
 
-    @Inject
-    lateinit var viewModel: MoreFragmentVM
+    private val viewModel: MoreFragmentVM by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

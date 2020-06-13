@@ -4,10 +4,13 @@ import app.thegoodparts.data.repository.AwsRepository
 import app.thegoodparts.data.source.remote.AwsRemoteDataSource
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
+@InstallIn(ApplicationComponent::class)
 class AwsNetworkModule {
     /**
      * Create a provider method binding for [AwsRemoteDataSource].

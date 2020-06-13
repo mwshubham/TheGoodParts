@@ -6,11 +6,15 @@ import app.thegoodparts.data.source.local.NewsArticlesDao
 import app.thegoodparts.data.source.remote.NewsRemoteDataSource
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
+@InstallIn(ApplicationComponent::class)
 class NewsModule {
 
     /**
@@ -34,12 +38,12 @@ class NewsModule {
     @Singleton
     @Provides
     fun provideNewsRepository(
-        appContext: Context,
+        @ApplicationContext applicationContext: Context,
         newsArticlesDao: NewsArticlesDao,
         newsRemoteDataSource: NewsRemoteDataSource
     ) =
         NewsRepository(
-            appContext,
+            applicationContext,
             newsArticlesDao,
             newsRemoteDataSource
         )

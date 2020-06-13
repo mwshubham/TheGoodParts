@@ -1,6 +1,7 @@
 package app.thegoodparts.ui.activities
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -12,16 +13,16 @@ import app.thegoodparts.databinding.ActivityMainBinding
 import app.thegoodparts.utilities.CoreFirebaseUtils
 import app.thegoodparts.utilities.CoreFragmentLifecycleCallbacks
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
-import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
-    @Inject
-    lateinit var viewModel: MainActivityVM
+    private val viewModel: MainActivityVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,6 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
             this,
             R.layout.activity_main
         )
-        Timber.i("isInitialized: ${::viewModel.isInitialized}")
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this

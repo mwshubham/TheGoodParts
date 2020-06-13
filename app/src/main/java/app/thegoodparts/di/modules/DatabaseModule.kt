@@ -6,6 +6,9 @@ import android.content.Context
 import app.thegoodparts.data.source.local.MainDatabase
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 /**
@@ -16,6 +19,7 @@ import javax.inject.Singleton
  * @see Module
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 class DatabaseModule {
 
     /**
@@ -26,7 +30,8 @@ class DatabaseModule {
      */
     @Singleton
     @Provides
-    fun provideMainDatabase(context: Context) = MainDatabase.buildDefault(context)
+    fun provideMainDatabase(@ApplicationContext applicationContext: Context) =
+        MainDatabase.buildDefault(applicationContext)
 
     /**
      * Create a provider method binding for [NewsArticlesDao].

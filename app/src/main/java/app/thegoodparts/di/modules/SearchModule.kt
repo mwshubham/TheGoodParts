@@ -4,11 +4,14 @@ import app.thegoodparts.data.repository.SearchRepository
 import app.thegoodparts.data.source.remote.SearchRemoteDataSource
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
+@InstallIn(ApplicationComponent::class)
 class SearchModule {
 
     /**

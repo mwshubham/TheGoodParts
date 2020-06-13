@@ -1,11 +1,11 @@
 package app.thegoodparts.ui.fragments.more
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import timber.log.Timber
-import javax.inject.Inject
 
 class MoreFragmentVM
-@Inject constructor() : ViewModel() {
+@ViewModelInject constructor() : ViewModel() {
 
     init {
         Timber.i("init{}")

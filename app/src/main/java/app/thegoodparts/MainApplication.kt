@@ -2,30 +2,23 @@ package app.thegoodparts
 
 import android.app.Application
 import app.thegoodparts.constants.CoreLoggingConstants
-import app.thegoodparts.di.components.DaggerApplicationComponent
 import app.thegoodparts.utilities.CoreActivityLifecycleCallbacks
 import app.thegoodparts.utilities.CoreDebugTree
 import com.facebook.stetho.Stetho
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
 
-class MainApplication : Application(), HasAndroidInjector {
-
-    @Inject
-    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+@HiltAndroidApp
+class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         initTimber()
-        initAppDependencyInjection()
         initStetho()
         initFirebaseRemoteConfig()
         registerActivityLifecycleCallbacks()
@@ -48,18 +41,6 @@ class MainApplication : Application(), HasAndroidInjector {
     private fun initStetho() {
         Stetho.initializeWithDefaults(this)
     }
-
-    /**
-     * Initialize app dependency injection component.
-     */
-    private fun initAppDependencyInjection() {
-        DaggerApplicationComponent
-            .factory()
-            .create(this)
-            .inject(this)
-    }
-
-    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
     private fun initFirebaseRemoteConfig() {
         val configSettings = remoteConfigSettings {

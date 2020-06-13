@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import app.thegoodparts.ApiState
@@ -19,15 +20,15 @@ import app.thegoodparts.ui.ScreenState
 import app.thegoodparts.ui.fragments.BaseFragment
 import app.thegoodparts.utilities.CoreKeyboardUtils
 import app.thegoodparts.utilities.CoreNetworkUtils
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
-import javax.inject.Inject
 
+@AndroidEntryPoint
 @OpenForTesting
 open class SearchFragment : BaseFragment() {
 
-    @Inject
-    lateinit var viewModel: SearchFragmentVM
     lateinit var binding: FragmentSearchBinding
+    private val viewModel: SearchFragmentVM by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

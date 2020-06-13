@@ -7,6 +7,9 @@ import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,6 +20,7 @@ import javax.inject.Singleton
  * @see Module
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 class NetworkModule {
 
     /**
@@ -53,8 +57,8 @@ class NetworkModule {
      */
     @Singleton
     @Provides
-    fun provideChuckerInterceptor(appContext: Context): ChuckerInterceptor {
-        return ChuckerInterceptor(appContext)
+    fun provideChuckerInterceptor(@ApplicationContext applicationContext: Context): ChuckerInterceptor {
+        return ChuckerInterceptor(applicationContext)
     }
 
     /**

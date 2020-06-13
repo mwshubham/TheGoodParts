@@ -5,22 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import app.thegoodparts.R
 import app.thegoodparts.databinding.FragmentNewsDetailsBinding
 import app.thegoodparts.extensions.observeNotNull
 import app.thegoodparts.ui.fragments.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
-import javax.inject.Inject
 
+@AndroidEntryPoint
 class NewsDetailsFragment : BaseFragment() {
     private lateinit var binding: FragmentNewsDetailsBinding
     private val args: NewsDetailsFragmentArgs by navArgs()
 
-    @Inject
-    lateinit var viewModel: NewsDetailsFragmentVM
+    private val viewModel: NewsDetailsFragmentVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import app.thegoodparts.R
 import app.thegoodparts.ui.fragments.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ListenFragment : BaseFragment() {
 
     override fun onCreateView(

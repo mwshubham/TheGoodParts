@@ -1,8 +1,8 @@
 package app.thegoodparts.ui.fragments.listen
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
 
 class ListenFragmentVM
-@Inject constructor(
+@ViewModelInject constructor(
 ) : ViewModel()

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import app.thegoodparts.ApiState
 import app.thegoodparts.R
@@ -16,18 +17,18 @@ import app.thegoodparts.extensions.observeNotNull
 import app.thegoodparts.ui.fragments.BaseFragment
 import app.thegoodparts.ui.fragments.newsdetails.NewsDetailsFragmentDirections
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
-import javax.inject.Inject
 
+@AndroidEntryPoint
 @ExperimentalCoroutinesApi
 class HomeFragment : BaseFragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var adapter: NewsArticlesAdapter
 
-    @Inject
-    lateinit var viewModel: HomeFragmentVM
+    private val viewModel by viewModels<HomeFragmentVM>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

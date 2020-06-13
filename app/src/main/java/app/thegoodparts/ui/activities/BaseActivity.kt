@@ -1,8 +1,8 @@
 package app.thegoodparts.ui.activities
 
 import android.annotation.SuppressLint
-import dagger.android.support.DaggerAppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 @SuppressLint("Registered")
-open class BaseActivity : DaggerAppCompatActivity()
+open class BaseActivity : AppCompatActivity()
 
