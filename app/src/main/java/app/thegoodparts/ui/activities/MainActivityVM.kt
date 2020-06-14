@@ -1,7 +1,7 @@
 package app.thegoodparts.ui.activities
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
 
 class MainActivityVM
-@Inject constructor() : ViewModel()
+@ViewModelInject constructor() : ViewModel()
