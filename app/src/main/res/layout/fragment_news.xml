@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="app.thegoodparts.ui.fragments.home.HomeFragmentVM" />
+            type="app.thegoodparts.ui.fragments.news.NewsFragmentVM" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -18,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.fragments.home.HomeFragment">
+            tools:context=".ui.fragments.news.NewsFragment">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_news"

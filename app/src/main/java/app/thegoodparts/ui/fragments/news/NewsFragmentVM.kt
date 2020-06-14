@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package app.thegoodparts.ui.fragments.home
+package app.thegoodparts.ui.fragments.news
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -14,7 +14,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
 
 @ExperimentalCoroutinesApi
-class HomeFragmentVM
+class NewsFragmentVM
 @ViewModelInject constructor(
     newsRepository: NewsRepository,
     private val newsRemoteDataSource: NewsRemoteDataSource

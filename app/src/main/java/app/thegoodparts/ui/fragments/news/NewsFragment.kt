@@ -1,4 +1,4 @@
-package app.thegoodparts.ui.fragments.home
+package app.thegoodparts.ui.fragments.news
 
 import android.content.Intent
 import android.net.Uri
@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import app.thegoodparts.ApiState
 import app.thegoodparts.R
 import app.thegoodparts.constants.ErrorType
-import app.thegoodparts.databinding.FragmentHomeBinding
+import app.thegoodparts.databinding.FragmentNewsBinding
 import app.thegoodparts.extensions.observeNotNull
 import app.thegoodparts.ui.fragments.BaseFragment
 import app.thegoodparts.ui.fragments.newsdetails.NewsDetailsFragmentDirections
@@ -23,12 +23,12 @@ import timber.log.Timber
 
 @AndroidEntryPoint
 @ExperimentalCoroutinesApi
-class HomeFragment : BaseFragment() {
+class NewsFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentNewsBinding
     private lateinit var adapter: NewsArticlesAdapter
 
-    private val viewModel by viewModels<HomeFragmentVM>()
+    private val viewModel by viewModels<NewsFragmentVM>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +36,7 @@ class HomeFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_home, container, false
+            R.layout.fragment_news, container, false
         )
         return binding.root
     }

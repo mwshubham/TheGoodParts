@@ -1,4 +1,4 @@
-package app.thegoodparts.ui.fragments.home
+package app.thegoodparts.ui.fragments.news
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

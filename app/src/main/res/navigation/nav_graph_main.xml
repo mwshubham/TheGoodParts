@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="app.thegoodparts.ui.fragments.home.HomeFragment"
+        android:name="app.thegoodparts.ui.fragments.news.NewsFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_news" />
 
     <action
         android:id="@+id/start_fragment_news_details"
