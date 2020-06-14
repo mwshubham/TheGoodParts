@@ -52,6 +52,7 @@
 
     <!--MainActivity-->
     <string name="news">News</string>
+    <string name="club">Club</string>
     <string name="home">Home</string>
     <string name="read">Read</string>
     <string name="watch">Watch</string>
@@ -84,4 +85,27 @@
 
     <!--view_progress_dialog-->
     <string name="loading">loading</string>
+
+    <!--CompanyListFragment & CompanyDetailFragment-->
+    <string name="follow">Follow</string>
+    <string name="following">Following</string>
+    <string name="sort">Sort</string>
+    <string name="sort_by">Sort by</string>
+    <string name="website_s">Website: %s</string>
+    <string name="name_a_to_z">Name - A to Z</string>
+    <string name="name_z_to_a">Name - Z to A</string>
+    <string name="age_experienced_to_young">Age - Experienced to Young</string>
+    <string name="age_young_to_experienced">Age - Young to Experienced</string>
+    <plurals name="s_year">
+        <item quantity="one">%d Year</item>
+        <item quantity="other">%d Years</item>
+    </plurals>
+    <plurals name="members_s">
+        <item quantity="one">Member (%d)</item>
+        <item quantity="other">Members (%d)</item>
+    </plurals>
+    <plurals name="s_member">
+        <item quantity="one">%d member</item>
+        <item quantity="other">%d members</item>
+    </plurals>
 </resources>

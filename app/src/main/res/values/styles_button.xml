@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Button.Main.Follow.Unchecked" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">8dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="itemShapeInsetTop">10dp</item>
+        <item name="itemShapeInsetEnd">0dp</item>
+        <item name="itemShapeInsetBottom">0dp</item>
+        <item name="itemShapeInsetStart">0dp</item>
+    </style>
+
+</resources>

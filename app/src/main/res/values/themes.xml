@@ -78,12 +78,17 @@
         <item name="motionInterpolatorOutgoing">@android:interpolator/accelerate_cubic</item>
 
         <!--Styles-->
+
+        <!--Toolbar-->
+        <item name="toolbarStyle">@style/Toolbar.Main</item>
+
         <item name="bottomAppBarStyle">
             @style/Widget.MaterialComponents.BottomAppBar.PrimarySurface
         </item>
         <item name="bottomSheetStyle">@style/Widget.MaterialComponents.BottomSheet.Modal</item>
         <item name="navigationViewStyle">@style/Widget.Main.NavigationView</item>
-        <item name="chipStyle">@style/Widget.Main.Chip.Entry</item>
+        <!--        <item name="chipStyle">@style/Widget.Main.Chip.Entry</item>-->
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Action</item>
 
         <!--System/Platform attributes-->
         <item name="android:windowBackground">?android:colorBackground</item>

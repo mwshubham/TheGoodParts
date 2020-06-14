@@ -73,4 +73,49 @@
         android:name="app.thegoodparts.ui.dialogs.InternetUnavailableDialogFragment"
         tools:layout="InternetUnavailableDialogFragment" />
 
+    <fragment
+        android:id="@+id/navigation_club"
+        android:name="app.thegoodparts.ui.fragments.companylist.CompanyListFragment"
+        android:label="company_list_fragment"
+        tools:layout="@layout/company_list_fragment">
+        <action
+            android:id="@+id/action_companyListFragment_to_companyDetailFragment"
+            app:destination="@id/companyDetailFragment">
+            <argument
+                android:name="id"
+                app:argType="string"
+                app:nullable="false" />
+        </action>
+    </fragment>
+    <action
+        android:id="@+id/action_to_sortBottomSheetDialogFragment"
+        app:destination="@id/sortBottomSheetDialogFragment">
+        <argument
+            android:name="sortFor"
+            app:argType="app.thegoodparts.ui.fragments.sortby.SortFor"
+            app:nullable="false" />
+    </action>
+    <dialog
+        android:id="@+id/sortBottomSheetDialogFragment"
+        android:name="app.thegoodparts.ui.fragments.sortby.SortBottomSheetDialogFragment"
+        android:label="sort_bottom_sheet_dialog_fragment"
+        tools:layout="@layout/sort_bottom_sheet_dialog_fragment">
+
+        <argument
+            android:name="sortFor"
+            app:argType="app.thegoodparts.ui.fragments.sortby.SortFor"
+            app:nullable="false" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/companyDetailFragment"
+        android:name="app.thegoodparts.CompanyDetailFragment"
+        android:label="company_detail_fragment"
+        tools:layout="@layout/company_detail_fragment">
+        <argument
+            android:name="id"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+
 </navigation>

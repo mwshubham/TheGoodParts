@@ -44,4 +44,25 @@ class DatabaseModule {
     fun provideNewsArticlesDao(newsDatabase: MainDatabase) =
         newsDatabase.newsArticlesDao()
 
+    /**
+     * Create a provider method binding for [app.thegoodparts.data.source.local.CompanyDao].
+     *
+     * @return Instance of companies data access object.
+     * @see Provides
+     */
+    @Singleton
+    @Provides
+    fun provideCompanyDao(mainDatabase: MainDatabase) =
+        mainDatabase.companyDao()
+
+    /**
+     * Create a provider method binding for [app.thegoodparts.data.source.local.MemberDao].
+     *
+     * @return Instance of members data access object.
+     * @see Provides
+     */
+    @Singleton
+    @Provides
+    fun provideMemberDao(mainDatabase: MainDatabase) =
+        mainDatabase.memberDao()
 }

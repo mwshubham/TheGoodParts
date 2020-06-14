@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="app.thegoodparts.ui.fragments.sortby.SortFor" />
+
+        <import type="app.thegoodparts.ui.fragments.sortby.SortType" />
+
+        <variable
+            name="args"
+            type="app.thegoodparts.ui.fragments.sortby.SortBottomSheetDialogFragmentArgs" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        tools:context=".ui.fragments.sortby.SortBottomSheetDialogFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_sort_by"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/sort_by"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.Main.Subtitle1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sort_by" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name_ascending"
+            style="@style/TextView.Sort.Item"
+            android:text="@string/name_a_to_z"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name_descending"
+            style="@style/TextView.Sort.Item"
+            android:text="@string/name_z_to_a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_ascending" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_age_ascending"
+            style="@style/TextView.Sort.Item"
+            isVisible="@{args.sortFor == SortFor.MEMBER}"
+            android:text="@string/age_young_to_experienced"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_descending"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_age_descending"
+            style="@style/TextView.Sort.Item"
+            isVisible="@{args.sortFor == SortFor.MEMBER}"
+            android:text="@string/age_experienced_to_young"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_age_ascending"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

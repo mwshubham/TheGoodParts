@@ -9,7 +9,6 @@ import retrofit2.http.Query
 import retrofit2.http.Url
 
 private const val ENDPOINT_TOP_HEADLINES = "/v2/top-headlines"
-
 @OpenForTesting
 interface NewsRemoteDataSource {
     /**

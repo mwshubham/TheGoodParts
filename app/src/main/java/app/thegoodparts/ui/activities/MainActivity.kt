@@ -65,7 +65,10 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
         arguments: Bundle?
     ) {
         Timber.i("destination: $destination")
-        if (destination.id == R.id.navigation_more || destination.id == R.id.fragment_search) {
+        if (destination.id == R.id.navigation_more
+            || destination.id == R.id.fragment_search
+            || destination.id == R.id.companyDetailFragment
+        ) {
             if (destination.id == R.id.navigation_more) {
                 if (binding.fabSearch.isGone) {
                     binding.fabShare.show()
@@ -84,7 +87,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
         } else if (
             destination.id in intArrayOf(
                 R.id.navigation_news,
-                R.id.navigation_read,
+                R.id.navigation_club,
                 R.id.navigation_watch,
                 R.id.navigation_listen
             )

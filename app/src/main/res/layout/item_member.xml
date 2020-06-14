@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="member"
+            type="app.thegoodparts.data.source.remote.response.Member" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name"
+            style="@style/TextView.Member.Item"
+            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:text="@{member.getFullNameWithAge(context)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Shubham Agarwal (26 Years)" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_phone"
+            style="@style/TextView.Member.Item"
+            android:autoLink="phone"
+            android:drawableStart="@drawable/ic_baseline_local_phone_24"
+            android:linksClickable="true"
+            android:text="@{member.phone}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="+91 8285453910" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_email"
+            style="@style/TextView.Member.Item"
+            android:layout_width="0dp"
+            android:layout_marginEnd="16dp"
+            android:autoLink="email"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:linksClickable="true"
+            android:text="@{member.email}"
+            app:layout_constraintEnd_toStartOf="@id/iv_fav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone"
+            tools:text="mwshubham@gmail.com" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/iv_fav"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:src="@{member.favourite ?@drawable/ic_baseline_favorite_24:  @drawable/ic_baseline_favorite_border_24}"
+            app:layout_constraintBottom_toBottomOf="@id/tv_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_email"
+            tools:src="@drawable/ic_baseline_favorite_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
