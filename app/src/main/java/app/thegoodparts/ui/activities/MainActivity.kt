@@ -83,7 +83,7 @@ class MainActivity : BaseActivity(), NavController.OnDestinationChangedListener 
             }
         } else if (
             destination.id in intArrayOf(
-                R.id.navigation_home,
+                R.id.navigation_news,
                 R.id.navigation_read,
                 R.id.navigation_watch,
                 R.id.navigation_listen
