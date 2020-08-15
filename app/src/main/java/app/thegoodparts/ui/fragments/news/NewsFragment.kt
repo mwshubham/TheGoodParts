@@ -94,7 +94,7 @@ class NewsFragment : BaseFragment() {
     private fun showNewsApiAttributionLinkIfRequired() {
         if (showNewsApiAttributionLink) {
             Snackbar.make(
-                binding.root,
+                requireActivity().findViewById(android.R.id.content),
                 "Powered by NewsAPI.org",
                 Snackbar.LENGTH_LONG
             )

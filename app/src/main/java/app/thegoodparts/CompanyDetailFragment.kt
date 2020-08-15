@@ -89,7 +89,6 @@ class CompanyDetailFragment : BaseFragment() {
         Timber.i(CoreLoggingConstants.LOGGING_PLACEHOLDER)
         (requireActivity() as AppCompatActivity).apply {
             setSupportActionBar(binding.toolbar)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setDisplayShowHomeEnabled(true)
             binding.toolbar.setNavigationOnClickListener { onBackPressed() }
         }
