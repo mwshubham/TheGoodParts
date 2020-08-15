@@ -84,8 +84,8 @@ class CompanyDetailFragment : BaseFragment() {
     }
 
     @ExperimentalCoroutinesApi
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         Timber.i(CoreLoggingConstants.LOGGING_PLACEHOLDER)
         (requireActivity() as AppCompatActivity).apply {
             setSupportActionBar(binding.toolbar)
