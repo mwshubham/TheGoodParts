@@ -1,5 +1,5 @@
 # The Good Parts (TGP)
-Work In Progress
+Work In Progress (My playground for keeping upto date with Android Tech Stack)
 
 ![Demo](https://github.com/mwshubham/TheGoodParts/blob/master/demo.gif)
 
